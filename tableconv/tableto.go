@@ -50,3 +50,32 @@ func ToCsv(table [][]string, fname string) error {
 	}
 	return nil
 }
+
+func FieldMap(table [][]string) map[string]int {
+	m := make(map[string]int, len(table[0]))
+	for i, s := range table[0] {
+		m[s] = i
+	}
+	return m
+}
+
+func TablesLen(tables ...[][]string) int {
+	length := 0
+	for _, table := range tables {
+		length += len(table)
+	}
+	return length
+}
+
+func Unique(field string, tables ...[][]string) map[string][]string {
+	l := TablesLen(tables...)
+	m := make(map[string][]string, l)
+	for _, table := range tables {
+		fm := FieldMap(table)
+		for j := 1; j < len(table); j++ {
+			k := table[j][fm[field]]
+			m[k] = table[j]
+		}
+	}
+	return m
+}
