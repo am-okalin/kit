@@ -1,4 +1,4 @@
-# dijkstra-navigation
+# dijkstra
 dijkstra算法实现最短路径计算
 
 实现sdk用于将各种数据模型转换为图，再求最短路径的dijkstra算法。
