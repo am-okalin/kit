@@ -4,9 +4,9 @@ import (
 	"testing"
 )
 
-func createGraph() graph {
+func createGraph() Graph {
 	graph := NewDenseGraph(6)
-	//graph := NewSparseGraph(6)
+	//Graph := NewSparseGraph(6)
 	graph.AddEdge(0, 1, 1)
 	graph.AddEdge(0, 3, 4)
 	graph.AddEdge(1, 2, 2)

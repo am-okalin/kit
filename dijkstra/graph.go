@@ -1,8 +1,8 @@
 package dijkstra
 
-// graph 图接口，只要是实现此接口的结构体都可执行dijkstra算法
+// Graph 图接口，只要是实现此接口的结构体都可执行dijkstra算法
 // 后续可对graph接口进行扩展支持其他导航算法
-type graph interface {
+type Graph interface {
 	//VertexNum 获取顶点数量
 	VertexNum() int
 

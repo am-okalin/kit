@@ -38,7 +38,7 @@ func initQue(sv int) *Heap {
 // g表示实现graph接口的类实例
 // s表示所有点的集合，true表示已找到最短路径
 // dist表示起始顶点(sv)到任意一点的距离
-func getShortest(g graph, s map[int]bool, dist []float64) int {
+func getShortest(g Graph, s map[int]bool, dist []float64) int {
 	mink := -1
 	min := math.MaxFloat64
 	for j := 0; j < g.VertexNum(); j++ {
@@ -52,7 +52,7 @@ func getShortest(g graph, s map[int]bool, dist []float64) int {
 
 // Dijkstra 找到sv到每个点的最短路径：每次只走距离原点最近的点，通过此路径优化其他路径
 // 此算法可以在找到ev后立即停下来,但这里只提供了找出所有点的最短路径方法(是想知道在图过大时找最远点是否会超时，如果超时建议选择别的算法)
-func Dijkstra(g graph, sv int) ([]int, []float64) {
+func Dijkstra(g Graph, sv int) ([]int, []float64) {
 	//s是所有点的集合，true表示已找到最短路径
 	n := g.VertexNum()
 	s := map[int]bool{}
@@ -86,7 +86,7 @@ func Dijkstra(g graph, sv int) ([]int, []float64) {
 }
 
 // Dijkstra2 为dijkstra的改进算法，使用了优先级队列进行了优化
-func Dijkstra2(g graph, sv int) ([]int, []float64) {
+func Dijkstra2(g Graph, sv int) ([]int, []float64) {
 	//s是所有点的集合，true表示已找到最短路径
 	s := map[int]bool{}
 	n := g.VertexNum()
