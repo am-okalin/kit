@@ -20,7 +20,11 @@ func createGraph() Graph {
 func Test_dijkstra0(t *testing.T) {
 	graph := createGraph()
 
-	prev, dist := Dijkstra2(graph, 0)
+	prev, dist := Dijkstra(graph, 0)
+	t.Log(prev)
+	t.Log(dist)
+
+	prev, dist = Dijkstra2(graph, 1)
 	t.Log(prev)
 	t.Log(dist)
 
