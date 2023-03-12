@@ -3,7 +3,6 @@ package dijkstra
 import (
 	"fmt"
 	"log"
-	"math"
 )
 
 // denseGraph 邻接矩阵-稠密图
@@ -20,7 +19,7 @@ func NewDenseGraph(vertexNum int) *denseGraph {
 	for i := 0; i < vertexNum; i++ {
 		adjMatrix[i] = make([]float64, vertexNum)
 		for j := 0; j < vertexNum; j++ {
-			adjMatrix[i][j] = math.MaxFloat64
+			adjMatrix[i][j] = Max
 		}
 	}
 	return &denseGraph{vertexNum: vertexNum, adjMatrix: adjMatrix}
@@ -48,17 +47,17 @@ func (dg *denseGraph) AddDoubleEdge(sv, ev int, weight float64) {
 }
 
 func (dg denseGraph) getWeight(sv, ev int) (float64, bool) {
-	if dg.adjMatrix[sv][ev] < math.MaxFloat64 {
+	if dg.adjMatrix[sv][ev] != Max {
 		return dg.adjMatrix[sv][ev], true
 	}
-	return math.MaxFloat64, false
+	return Max, false
 }
 
 // String 输出图
 func (dg denseGraph) String() string {
 	for i := 0; i < dg.vertexNum; i++ {
 		for j := 0; j < dg.vertexNum; j++ {
-			if dg.adjMatrix[i][j] != math.MaxFloat64 {
+			if dg.adjMatrix[i][j] != Max {
 				fmt.Print(dg.adjMatrix[i][j], " ")
 			} else {
 				fmt.Print("MAX ")

@@ -4,7 +4,6 @@ import (
 	"container/list"
 	"fmt"
 	"log"
-	"math"
 )
 
 // sparseGraph 邻接表-稀疏图
@@ -53,7 +52,7 @@ func (sg sparseGraph) getWeight(sv, ev int) (float64, bool) {
 			return elem.weight, true
 		}
 	}
-	return math.MaxFloat64, false
+	return Max, false
 }
 
 // String 输出图

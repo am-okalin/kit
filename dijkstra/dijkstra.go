@@ -2,7 +2,6 @@ package dijkstra
 
 import (
 	"container/heap"
-	"math"
 )
 
 // initPrev 初始化`起始顶点(sv)到任意一点的`路径
@@ -20,7 +19,7 @@ func initPrev(n int) []int {
 func initDist(n, sv int) []float64 {
 	dist := make([]float64, n)
 	for i := 0; i < n; i++ {
-		dist[i] = math.MaxFloat64
+		dist[i] = Max
 	}
 	//sv到自己的距离为0
 	dist[sv] = 0
@@ -40,7 +39,7 @@ func initQue(sv int) *Heap {
 // dist表示起始顶点(sv)到任意一点的距离
 func getShortest(g Graph, s map[int]bool, dist []float64) int {
 	mink := -1
-	min := math.MaxFloat64
+	min := Max
 	for j := 0; j < g.VertexNum(); j++ {
 		if s[j] == false && dist[j] < min {
 			min = dist[j]
